@@ -15,9 +15,7 @@ jobs:
       # When the emulator is ready, UI tests will be run.
       # After the tests are run, the gradle cache will be saved (if it
       # hasn't been saved before)
-      - run:
-          command: |
-            sdkmanager --update
+
       - android/start-emulator-and-run-tests:
           system-image: system-images;android-32;google_apis;x86_64
           additional-emulator-args: "-qemu -machine virt -no-audio"
