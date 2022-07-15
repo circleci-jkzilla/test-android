@@ -24,7 +24,6 @@ jobs:
           system-image: system-images;android-30;default;x86_64
           no-audio: true
           wait-for-emulator: false
-          checkout: false
           
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
