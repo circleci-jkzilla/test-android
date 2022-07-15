@@ -9,7 +9,7 @@ workflows:
           executor: 
             name: android/android-machine
             resource-class: xlarge
-            tag: "2022.06.02"
+            tag: "2022.06.2"
           system-image: system-images;android-29;default;arm64-v8a
           additional-emulator-args: "-qemu -machine virt"
           wait-for-emulator: false
