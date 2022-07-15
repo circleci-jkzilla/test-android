@@ -3,9 +3,10 @@ orbs:
   android: circleci/android@2.1.2
 jobs:
   test:
-    executor: android/android-machine:2022.06.2
+    executor: 
+      name: android/android-machine
+      tag: 2022.06.2
       
-
     steps:
       - checkout
       # Creates an AVD and starts up the emulator using the AVD.
