@@ -17,8 +17,9 @@ jobs:
       # After the tests are run, the gradle cache will be saved (if it
       # hasn't been saved before)
       - android/start-emulator-and-run-tests:
-          # additional-emulator-args: "-qemu -machine virt"
-          system-image: system-images;android-29;default;x86
+          additional-emulator-args: "-qemu -machine virt"
+          system-image: system-images;android-29;default;x86_64
+          no-audio: true
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
       #
