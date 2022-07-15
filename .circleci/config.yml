@@ -19,11 +19,7 @@ jobs:
           command: |
             sdkmanager --update
       - android/start-emulator-and-run-tests:
-          additional-emulator-args: "-qemu -machine virt"
-          post-emulator-launch-assemble-command: ""
-          system-image: system-images;android-30;default;x86_64
-          no-audio: true
-          wait-for-emulator: false
+          system-image: system-images;android-30;default;arm64-v8a
           
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
