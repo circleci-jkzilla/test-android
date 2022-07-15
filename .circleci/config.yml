@@ -9,17 +9,22 @@ jobs:
       tag: 2022.06.2
       
     steps:
-      - checkout
       # Creates an AVD and starts up the emulator using the AVD.
       # While the emulator is starting up, the gradle cache will
       # be restored and the Android app will be assembled.
       # When the emulator is ready, UI tests will be run.
       # After the tests are run, the gradle cache will be saved (if it
       # hasn't been saved before)
+      - run:
+          command: |
+            sdkmanager --update
       - android/start-emulator-and-run-tests:
           additional-emulator-args: "-qemu -machine virt"
+          post-emulator-launch-assemble-command: ""
           system-image: system-images;android-30;default;x86_64
           no-audio: true
+          wait-for-emulator: false
+          checkout: false
           
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
@@ -32,6 +37,4 @@ jobs:
 workflows:
   test:
     jobs:
-      - test:
-          context:
-            - skyita-mobile
+      - test
