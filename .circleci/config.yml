@@ -20,7 +20,7 @@ jobs:
           system-image: system-images;android-29;default;arm64-v8a
           additional-emulator-args: "-qemu -machine virt"
           wait-for-emulator: false
-          checkout: false
+          # checkout: false
           post-emulator-launch-assemble-command: ""
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
