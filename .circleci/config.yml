@@ -17,14 +17,16 @@ jobs:
       # hasn't been saved before)
 
       - android/start-emulator-and-run-tests:
-          system-image: system-images;android-28;default;x86
-          additional-emulator-args: "-qemu -machine pc-q35-2.10 -no-audio"
-          
+          system-image: system-images;android-29;default;arm64-v8a
+          additional-emulator-args: "-qemu -machine virt"
+          wait-for-emulator: false
+          checkout: false
+          post-emulator-launch-assemble-command: ""
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
       #
       #   The command to be run, while waiting for emulator startup, can be overridden
-      #   post-emulator-launch-assemble-command: ./gradlew assembleDebugAndroidTest
+        # post-emulator-launch-assemble-command: ""
       #
       #   The test command can be overridden
       #   test-command: ./gradlew connectedDebugAndroidTest
