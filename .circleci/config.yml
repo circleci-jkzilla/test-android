@@ -1,36 +1,17 @@
 version: 2.1
 orbs:
   android: circleci/android@2.1.2
-jobs:
-  test:
-    executor: 
-      name: android/android-machine
-      resource-class: xlarge
-      tag: 2022.06.2
-      
-    steps:
-      # Creates an AVD and starts up the emulator using the AVD.
-      # While the emulator is starting up, the gradle cache will
-      # be restored and the Android app will be assembled.
-      # When the emulator is ready, UI tests will be run.
-      # After the tests are run, the gradle cache will be saved (if it
-      # hasn't been saved before)
 
+workflows:
+  test:
+    jobs:
       - android/run-ui-tests:
+          executor: 
+            name: android/android-machine
+            resource-class: xlarge
+            tag: 2022.06.02
           system-image: system-images;android-29;default;arm64-v8a
           additional-emulator-args: "-qemu -machine virt"
           wait-for-emulator: false
           # checkout: false
           post-emulator-launch-assemble-command: ""
-      #   The cache prefix can be overridden
-      #   restore-gradle-cache-prefix: v1a
-      #
-      #   The command to be run, while waiting for emulator startup, can be overridden
-        # post-emulator-launch-assemble-command: ""
-      #
-      #   The test command can be overridden
-      #   test-command: ./gradlew connectedDebugAndroidTest
-workflows:
-  test:
-    jobs:
-      - test
