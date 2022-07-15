@@ -18,7 +18,7 @@ jobs:
 
       - android/start-emulator-and-run-tests:
           system-image: system-images;android-32;google_apis;x86_64
-          additional-emulator-args: "-qemu -machine virt -no-audio"
+          additional-emulator-args: "-qemu -machine pc -no-audio"
           
       #   The cache prefix can be overridden
       #   restore-gradle-cache-prefix: v1a
