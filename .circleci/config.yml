@@ -3,7 +3,7 @@ orbs:
   android: circleci/android@2.1.2
 jobs:
   test:
-    executor: android-machine
+    executor: android/android-machine
 
     steps:
       - checkout
